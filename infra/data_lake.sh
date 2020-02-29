@@ -60,3 +60,13 @@ az sql server firewall-rule create \
  --start-ip-address 0.0.0.0 \
  --end-ip-address 0.0.0.0
 
+###Databricks###
+DATA_LAKE_WORKFLOW_DB='databricksddeploy'
+ARM_LOCATION_DB='arm/databricks.json'
+ARM_PROPS_LOCATION_DB='../conf/databricks_prop.json'
+# Create Azure Databricks 
+az group deployment create \
+ --name $DATA_LAKE_WORKFLOW_DB \
+        --resource-group $DATA_LAKE_RG \
+ --template-file $ARM_LOCATION_DB \
+ --parameters $ARM_PROPS_LOCATION_DB
