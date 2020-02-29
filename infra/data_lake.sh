@@ -70,3 +70,11 @@ az group deployment create \
         --resource-group $DATA_LAKE_RG \
  --template-file $ARM_LOCATION_DB \
  --parameters $ARM_PROPS_LOCATION_DB
+
+ ###Data Warehouse###
+ DATA_LAKE_DWH_NAME='datalakedw'
+# Create a SQL Datawarehouse
+az sql dw create \
+ --resource-group $DATA_LAKE_RG \
+ --server $DATA_LAKE_SERVER_NAME \
+ --name $DATA_LAKE_DWH_NAME
